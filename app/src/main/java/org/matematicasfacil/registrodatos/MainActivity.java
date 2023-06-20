@@ -1,7 +1,6 @@
 package org.matematicasfacil.registrodatos;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,8 +29,17 @@ public class MainActivity extends AppCompatActivity {
                 String email = correo.getText().toString();
                 String password = clave.getText().toString();
 
-                String concatenado = "Nombre: " + name + "Apellido: " + lastName + "Correo: " + email + "Contraseña: " + password;
+                if(nombre.getText().toString().isEmpty() || apellido.getText().toString().isEmpty() || correo.getText().toString().isEmpty()
+                        || clave.getText().toString().isEmpty()   ){
+                    Toast.makeText(getBaseContext(), "Faltan campos por completar ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!correo.getText().toString().contains("@")){
+                    Toast.makeText(getBaseContext(), "Campo correo invalido ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                String concatenado = "Nombre: " + name + " Apellido: " + lastName + " Correo: " + email + " Contraseña: " + password;
                 Toast.makeText(getBaseContext(), concatenado, Toast.LENGTH_SHORT).show();
             }
         });
