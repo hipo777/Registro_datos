@@ -3,6 +3,11 @@ package org.matematicasfacil.registrodatos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +15,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        EditText nombre = findViewById(R.id.editTextNombre);
+        EditText apellido = findViewById(R.id.editTextApellido);
+        EditText correo = findViewById(R.id.editTextEmail);
+        EditText clave = findViewById(R.id.editTextPassword);
+        Button boton = findViewById(R.id.button);
+
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = nombre.getText().toString();
+                String lastName = apellido.getText().toString();
+                String email = correo.getText().toString();
+                String password = clave.getText().toString();
+
+                String concatenado = "Nombre: " + name + "Apellido: " + lastName + "Correo: " + email + "Contraseña: " + password;
+
+                Toast.makeText(getBaseContext(), concatenado, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
