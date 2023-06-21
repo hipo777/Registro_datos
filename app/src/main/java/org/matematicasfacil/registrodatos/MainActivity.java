@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = nombre.getText().toString();
+                String name = String.valueOf(nombre.getText());
                 String lastName = apellido.getText().toString();
                 String email = correo.getText().toString();
                 String password = clave.getText().toString();
