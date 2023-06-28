@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Método ViewBinding
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(binding.getRoot());
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
                 String email = binding.editTextEmail.getText().toString();
                 String password = binding.editTextPassword.getText().toString();
 
-                if(nombre.getText().toString().isEmpty() || apellido.getText().toString().isEmpty() || correo.getText().toString().isEmpty()
-                        || clave.getText().toString().isEmpty()   ){
+                if(binding.editTextNombre.getText().toString().isEmpty() || binding.editTextApellido.getText().toString().isEmpty() || binding.editTextEmail.getText().toString().isEmpty()
+                        || binding.editTextPassword.getText().toString().isEmpty()   ){
                     Toast.makeText(getBaseContext(), "Faltan campos por completar ", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(!correo.getText().toString().contains("@")){
+                if(!binding.editTextEmail.getText().toString().contains("@")){
                     Toast.makeText(getBaseContext(), "Campo correo invalido ", Toast.LENGTH_SHORT).show();
                     return;
                 }
